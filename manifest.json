@@ -1,0 +1,44 @@
+{
+	"manifest_version": 3,
+	"name": "Honey Barrel",
+	"version": "1.0.0",
+	"description": "Compare whisky and wine prices with BAXUS marketplace",
+	"permissions": ["activeTab", "storage"],
+	"host_permissions": [
+		"https://services.baxus.co/*",
+		"*://*.wine.com/*",
+		"*://*.totalwine.com/*",
+		"*://*.caskers.com/*",
+		"*://*.reservebar.com/*",
+		"*://*.drizly.com/*"
+	],
+	"background": {
+		"service_worker": "background/background.js"
+	},
+	"content_scripts": [
+		{
+			"matches": [
+				"*://*.wine.com/*",
+				"*://*.totalwine.com/*",
+				"*://*.caskers.com/*",
+				"*://*.reservebar.com/*",
+				"*://*.drizly.com/*"
+			],
+			"js": ["utils/scraper.js", "content/content.js"],
+			"run_at": "document_end"
+		}
+	],
+	"action": {
+		"default_popup": "views/popup.html",
+		"default_icon": {
+			"16": "assets/icons/icon16.png",
+			"48": "assets/icons/icon48.png",
+			"128": "assets/icons/icon128.png"
+		}
+	},
+	"icons": {
+		"16": "assets/icons/icon16.png",
+		"48": "assets/icons/icon48.png",
+		"128": "assets/icons/icon128.png"
+	}
+}

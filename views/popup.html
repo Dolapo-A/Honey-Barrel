@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Honey Barrel</title>
+		<link rel="stylesheet" href="../popup/popup.css" />
+	</head>
+	<body>
+		<div class="container">
+			<header class="logo">
+				<img src="../assets/icons/icon48.png" alt="Honey Barrel Logo" />
+				<h1>The Honey Barrel</h1>
+				<p>
+					Find exceptional wine & whiskey deals.
+					<br />
+					Compare prices. Shop smarter with BAXUS.
+				</p>
+			</header>
+
+			<div class="divider"></div>
+
+			<!-- Loading state -->
+			<div id="loading" class="state loading-state">
+				<div class="spinner"></div>
+				<p>Searching for wine deals...</p>
+			</div>
+
+			<!-- No product detected state -->
+			<div id="no-product" class="state">
+				<div class="message-container">
+					<h2>No Wine Detected</h2>
+					<p>We couldn't find any wine product on this page.</p>
+					<p class="tip">
+						Try browsing to a page with a specific wine product.
+					</p>
+				</div>
+			</div>
+
+			<!-- No matches found state -->
+			<div id="no-matches" class="state">
+				<div class="scraped-product-header">
+					<h2>Wine Details</h2>
+					<!-- <span id="current-product-source">Source</span> -->
+				</div>
+				<div id="no-matches-product" class="scraped-product">
+					<div class="scraped-product-image-container">
+						<img class="scraped-product-image" src="" alt="Wine image" />
+					</div>
+					<div class="scraped-product-details">
+						<p class="scraped-product-price"></p>
+						<p class="scraped-product-name"></p>
+						<p class="scraped-product-vintage-details">
+							Vintage:
+							<span class="scraped-product-vintage"></span>
+						</p>
+						<p class="scraped-product-size"></p>
+						<p class="product-source"></p>
+					</div>
+				</div>
+				<div class="message-container">
+					<svg
+						xmlns="http://www.w3.org/2000/svg"
+						class="ionicon-container"
+						viewBox="0 0 512 512"
+					>
+						<path
+							class="ionicon"
+							d="M448 256c0-106-86-192-192-192S64 150 64 256s86 192 192 192 192-86 192-192z"
+							fill="none"
+							stroke="currentColor"
+							stroke-miterlimit="10"
+							stroke-width="32"
+						/>
+						<path
+							class="ionicon"
+							d="M250.26 166.05L256 288l5.73-121.95a5.74 5.74 0 00-5.79-6h0a5.74 5.74 0 00-5.68 6z"
+							fill="none"
+							stroke="currentColor"
+							stroke-linecap="round"
+							stroke-linejoin="round"
+							stroke-width="32"
+						/>
+						<path
+							class="ionicon dot"
+							d="M256 367.91a20 20 0 1120-20 20 20 0 01-20 20z"
+						/>
+					</svg>
+					<div class="no-matches-message">
+						<h3>No Match Found</h3>
+						<p>
+							Unfortunately, We couldn't find any match for this wine/whiskey in the BAXUS marketplace.
+						</p>
+					</div>
+				</div>
+			</div>
+
+			<!-- Matches found state -->
+			<div id="matches-found" class="state">
+				<div class="scraped-product-header">
+					<h2>Wine Details</h2>
+					<!-- <span class="current-product-source">Source</span> -->
+				</div>
+				<div id="matches-product" class="scraped-product">
+					<div class="scraped-product-image-container">
+						<img class="scraped-product-image" src="" alt="Wine image" />
+					</div>
+					<div class="scraped-product-details">
+						<p class="scraped-product-price"></p>
+						<p class="scraped-product-name"></p>
+						<p class="scraped-product-vintage-details">
+							Vintage:
+							<span class="scraped-product-vintage"></span>
+						</p>
+						<p class="scraped-product-size"></p>
+						<!-- <span class="scraped-product-source"></span> -->
+					</div>
+				</div>
+
+				<div class="scraped-product-header">
+					<h2>BAXUS Marketplace Deals</h2>
+				</div>
+				<div id="comparison-results" class="comparison-container"></div>
+			</div>
+
+			<!-- Error state -->
+			<div id="error" class="state">
+				<div class="message-container error-container">
+					<h2>Oops!</h2>
+					<p>An error occurred.</p>
+					<button id="retry-button" class="button">Try Again</button>
+				</div>
+			</div>
+
+			<footer>
+				<div class="divider"></div>
+				<p>
+					Powered by
+					<a href="https://www.baxus.co/">BAXUS</a>
+				</p>
+			</footer>
+
+			<!-- Use type="module" to enable ES6 imports -->
+			<script type="module" src="../scripts/popup/popup.js"></script>
+		</div>
+	</body>
+</html>
