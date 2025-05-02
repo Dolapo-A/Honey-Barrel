@@ -53,8 +53,6 @@ The extension currently works with the following platforms:
 
 ## <a name="demo-video"></a> 🎥 Demo Video
 
-[Insert your video description here]
-
 [Watch the Demo Video](./assets/videos/demo.mp4)
 
 _Note: Replace "YOUR_VIDEO_URL" with the actual URL of your demonstration video._
@@ -72,16 +70,6 @@ Access the extension settings by right-clicking the icon and selecting "Options"
 
 We welcome contributions from the community! Please see our [Contributing Guidelines](CONTRIBUTING.md) for more information on how to get involved.
 
-## 📞 Support
-
-- **Email**: <support@baxushoneybarrel.com>
-- **Twitter**: [@BaxusHB](https://twitter.com/BaxusHB)
-- **Discord**: [Join our community](https://discord.gg/baxushoneybarrel)
-
-## 📜 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
 ---
 
-Made with ❤️ by the Baxus team
+Made with ❤️ by the Dolapo Araoye
