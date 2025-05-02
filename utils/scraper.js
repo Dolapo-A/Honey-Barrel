@@ -155,11 +155,15 @@ function isProductPage(url) {
 	// Common product page patterns
 	const productPagePatterns = [
 		/\/product\//i,
+		/\/products\//i,
 		/\/p\/\d+/i,
 		/\/item\//i,
 		/\/spirits\/[\w-]+\/\d+/i,
 		/\/wine\/[\w-]+\/\d+/i,
 		/\/whisky\/[\w-]+\//i,
+		/\/whiskey\/[\w-]+\//i,
+		/\/[\w-]+-whisky\//i, // Matches product-name-whisky/ pattern
+		/\/[\w-]+-whiskey\//i, // Matches product-name-whiskey/ pattern
 	];
 
 	return productPagePatterns.some((pattern) => pattern.test(url));
@@ -197,25 +201,25 @@ function cleanProductName(name, vintage) {
 const scraperConfigs = {
 	"wine.com": {
 		name: () => {
-			const nameElement = document.querySelector("h1.product-name");
+			const nameElement = document.querySelector(".pipName");
 			return nameElement ? cleanProductName(nameElement.textContent) : null;
 		},
 		price: () => {
-			const priceElement = document.querySelector("span.price");
+			const priceElement = document.querySelector(".productPrice_price-sale");
 			return priceElement ? extractPrice(priceElement.textContent) : null;
 		},
 		image: () => {
-			const imgElement = document.querySelector(".product-image img");
+			const imgElement = document.querySelector(".pipProdPicture_img");
 			return imgElement ? imgElement.src : null;
 		},
 		vintage: () => {
-			const vintageElement = document.querySelector(".vintage-info");
+			const vintageElement = document.querySelector(".pipProdDetails_name");
 			return vintageElement
 				? extractVintageFromText(vintageElement.textContent)
 				: null;
 		},
 		size: () => {
-			const sizeElement = document.querySelector(".bottle-size");
+			const sizeElement = document.querySelector(".pipProdDetails_name");
 			return sizeElement
 				? extractBottleSizeFromText(sizeElement.textContent)
 				: null;
@@ -263,16 +267,38 @@ const scraperConfigs = {
 	},
 	"caskers.com": {
 		name: () => {
-			const nameElement = document.querySelector("h1.product-single__title");
+			const nameElement = document.querySelector("h1.page-title");
 			return nameElement ? cleanProductName(nameElement.textContent) : null;
 		},
 		price: () => {
-			const priceElement = document.querySelector(".product__price");
+			const priceElement = document.querySelector("span.price");
 			return priceElement ? extractPrice(priceElement.textContent) : null;
 		},
 		image: () => {
-			const imgElement = document.querySelector(".product-single__media img");
-			return imgElement ? imgElement.src : null;
+			// Try to get the active image first
+			const activeImgElement = document.querySelector(
+				".fotorama__stage__frame.fotorama__active img"
+			);
+
+			if (activeImgElement) {
+				return {
+					url: activeImgElement.getAttribute("src"),
+					alt: activeImgElement.getAttribute("alt") || "",
+				};
+			}
+
+			// Fallback to the first image if no active image is found
+			const firstImgElement = document.querySelector(
+				".fotorama__stage__frame img"
+			);
+			if (firstImgElement) {
+				return {
+					url: firstImgElement.getAttribute("src"),
+					alt: firstImgElement.getAttribute("alt") || "",
+				};
+			}
+
+			return null;
 		},
 		vintage: () => {
 			const vintageElement = document.querySelector(
@@ -283,7 +309,7 @@ const scraperConfigs = {
 				: null;
 		},
 		size: () => {
-			const sizeElement = document.querySelector(".product-single__meta .size");
+			const sizeElement = document.querySelector(".product-item-size");
 			return sizeElement
 				? extractBottleSizeFromText(sizeElement.textContent)
 				: null;
@@ -291,15 +317,15 @@ const scraperConfigs = {
 	},
 	"reservebar.com": {
 		name: () => {
-			const nameElement = document.querySelector("h1.product-title");
+			const nameElement = document.querySelector('[class^="md:text-[28px]"]');
 			return nameElement ? cleanProductName(nameElement.textContent) : null;
 		},
 		price: () => {
-			const priceElement = document.querySelector(".product-price");
+			const priceElement = document.querySelector(".font-bold");
 			return priceElement ? extractPrice(priceElement.textContent) : null;
 		},
 		image: () => {
-			const imgElement = document.querySelector(".product-image img");
+			const imgElement = document.querySelector("bg-white src");
 			return imgElement ? imgElement.src : null;
 		},
 		vintage: () => {
@@ -309,7 +335,7 @@ const scraperConfigs = {
 				: null;
 		},
 		size: () => {
-			const sizeElement = document.querySelector(".product-meta .size");
+			const sizeElement = document.querySelector("subpixel-antialiased");
 			return sizeElement
 				? extractBottleSizeFromText(sizeElement.textContent)
 				: null;

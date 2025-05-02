@@ -14,9 +14,11 @@
  * @property {number} price - Price in USD
  * @property {string} [size] - Bottle size
  * @property {string} [imageURL] - Image URL
+ * @property {string} [vintage] - Wine vintage year
  * @property {string} [url] - BAXUS listing URL
  * @property {number} priceDifference - Price difference vs original
  * @property {number} percentageSavings - Percentage savings
+ * @property {number} similarityScore
  */
 
 // Export empty object since we're just using this file for JSDoc types

@@ -13,7 +13,7 @@ export const UI_STATE = {
 export const DEFAULTS = {
 	IMAGE_PLACEHOLDER: "https://assets.baxus.co/599/599.jpg",
 	MARKETPLACE_URL: "https://www.baxus.co/?sortBy=priority%3Adesc",
-	TIMEOUT_MS: 3000,
+	TIMEOUT_MS: 50000,
 };
 
 /** API endpoints */

@@ -105,9 +105,11 @@ export default {
 		const price = item.price || 0;
 		const priceDifference = item.priceDifference || 0;
 		const percentageSavings = item.percentageSavings || 0;
+		const similarityScore = item.similarityScore || 0;
 		const imageURL = item.imageURL || DEFAULTS.IMAGE_PLACEHOLDER;
 		const size = item.size || "N/A";
 		const url = item.url || DEFAULTS.MARKETPLACE_URL;
+		const vintage = item.vintage || "N/A";
 
 		// Create savings element if there are savings
 		const savingsHTML =
@@ -118,7 +120,7 @@ export default {
 					)}</span>
 				
 			   </div>`
-				: `<div class="no-savings">Same price as original</div>`;
+				: `<div class="no-savings"></div>`;
 
 		const percentageSavingsBadge =
 			percentageSavings > 0
@@ -139,7 +141,7 @@ export default {
 				${percentageSavingsBadge}
 				<div class="scraped-product-image-container baxus-product-image-container">
 					<img
-						class="scraped-product-image baxus-product-image"
+						class="baxus-product-image"
 						src="${imageURL}"
 						alt="${name} image"
 						loading="lazy"
@@ -148,7 +150,14 @@ export default {
 				<div class="scraped-product-details baxus-product-details">
 					<p class="scraped-product-price baxus-product-price">${formatPrice(price)}</p>
 					<p class="scraped-product-name baxus-product-name">${name}</p>
-					<p class="scraped-product-size baxus-product-size">${size}</p>
+					<div class="size-vintage-container">
+						<p class="scraped-product-size baxus-product-size">${size}</p>
+						<p class="baxus-product-vintage-details">${vintage}</p>
+					</div>
+					<p class"similarity-score">
+					<span>Similarity</span>
+					${similarityScore}/1
+					</p>
 					${savingsHTML}
 				</div>
 			</div>

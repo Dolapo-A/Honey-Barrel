@@ -5,7 +5,7 @@
 }
 
 html {
-	width: 400px;
+	width: 450px;
 }
 
 body {
@@ -230,15 +230,28 @@ h3 {
 	justify-content: center;
 	align-items: center;
 	padding: 4px;
+	height: 140px;
+	width: 120px;
 }
 
 .scraped-product-image {
-	width: 100px;
+	max-width: 100px;
+	max-height: 150px; /* Slightly less than container height to account for padding */
+    object-fit: contain; /* Ensures the entire image is visible */
+	border-radius: 8px;
+}
+
+
+.product-image{
+	max-width: 100px;
+	max-height: 150px; /* Slightly less than container height to account for padding */
+    object-fit: contain; /* Ensures the entire image is visible */
 	border-radius: 8px;
 }
 
 .scraped-product-details {
 	display: flex;
+	justify-content: space-between;
 	flex-direction: column;
 	gap: 8px;
 	padding: 2px 0;
@@ -329,8 +342,38 @@ h3 {
 	position: relative;
 }
 
-.baxus-product-details {
+.baxus-product-image-container{
+	width: 100%;
+}
+
+.baxus-product-image{
+	border-radius: 12px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 140px;
+	width: 120px;
+	padding: 4px;
+}
+
+.baxus-product-vintage-details{
+	border: 1px solid var(--primary-color);
+	border-radius: 24px;
+	padding: 2px 8px;
+	font-size: 12px;
+	color: var(--gray-8080);
+	display: inline-block;
+	width: fit-content;
+}
+
+.size-vintage-container{
+	display: flex;
 	gap: 8px;
+	align-items: baseline;
+}
+
+.baxus-product-details {
+	gap: 6px;
 }
 
 .baxus-product-price {

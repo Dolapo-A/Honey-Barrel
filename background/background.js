@@ -130,16 +130,37 @@ const testProductData = {
 const mockBaxusResponse = {
 	results: [
 		{
+			id: "bx123459",
+			name: "Penelope Toasted Barrel Finish Straight Bourbon",
+			vintage: "1970",
+			size: "47ml",
+			price: 30.0,
+			seller: "Hiram Walker & Sons",
+			condition: "Perfect",
+			url: "https://www.baxus.co/asset/CEfGMsZAPNCaqEm7JmQoMvg6wwKnTs6FMyGxNmBuFaN",
+			imageURL: "https://assets.baxus.co/599/599.jpg",
+		},
+		{
 			id: "bx123456",
 			name: "Caymus Cabernet Sauvignon Napa 50th Anniversary, 2022",
-			vintage: "2018",
+			vintage: "2022",
 			size: "750ml",
 			price: 60.0,
 			seller: "Wine Collector NYC",
 			condition: "Perfect",
 			url: "https://baxus.co/listing/bx123456",
-
-			imageURL: "https://assets.baxus.co/599/599.jpg",
+			imageURL: "https://assets.baxus.co/5967/5967.jpg",
+		},
+		{
+			id: "bx123456",
+			name: "Caymus Cabernet Sauvignon Napa 50th Anniversary",
+			vintage: "2018",
+			size: "750ml",
+			price: 6.0,
+			seller: "Wine Collector NYC",
+			condition: "Perfect",
+			url: "https://baxus.co/listing/bx123456",
+			imageURL: "https://assets.baxus.co/5967/5967.jpg",
 		},
 		{
 			id: "bx123456",
@@ -150,7 +171,6 @@ const mockBaxusResponse = {
 			seller: "Wine Collector NYC",
 			condition: "Perfect",
 			url: "https://baxus.co/listing/bx123456",
-
 			imageURL: "https://assets.baxus.co/599/599.jpg",
 		},
 		{
@@ -172,6 +192,7 @@ const mockBaxusResponse = {
 			seller: "Premium Wines",
 			condition: "Perfect",
 			url: "https://baxus.co/listing/bx123458",
+			imageURL: "https://assets.baxus.co/599/599.jpg",
 		},
 	],
 };
@@ -375,3 +396,40 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
 		return true; // Keep the message channel open for the async response
 	}
 });
+
+function calculateStringSimilarity(str1, str2) {
+	if (!str1 || !str2) return 0;
+
+	// Convert to lowercase for comparison
+	const s1 = str1.toLowerCase().trim();
+	const s2 = str2.toLowerCase().trim();
+
+	// Use exact match for short strings
+	if (s1 === s2) return 1;
+
+	// Quick check: if one string contains the other completely
+	if (s1.includes(s2) || s2.includes(s1)) {
+		const longerLength = Math.max(s1.length, s2.length);
+		const shorterLength = Math.min(s1.length, s2.length);
+		return shorterLength / longerLength;
+	}
+
+	// For longer strings, use word-based comparison for better performance
+	const words1 = s1.split(/\s+/);
+	const words2 = s2.split(/\s+/);
+
+	// Count matching words
+	let matchingWords = 0;
+	const shorterWordList = words1.length <= words2.length ? words1 : words2;
+	const longerWordList = words1.length > words2.length ? words1 : words2;
+
+	for (const word of shorterWordList) {
+		if (longerWordList.includes(word)) {
+			matchingWords++;
+		}
+	}
+
+	// Calculate similarity based on matching words
+	const maxWordCount = Math.max(words1.length, words2.length);
+	return matchingWords / maxWordCount;
+}
