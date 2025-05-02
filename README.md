@@ -1,12 +1,12 @@
 # Baxus Honey Barrel - Wine & Whiskey Market Analyzer
 
-![Baxus Honey Barrel Logo](./assets/icons)
+![Baxus Honey Barrel Logo](./assets/icons/icon128.png)
 
 ## 📝 Overview
 
 Baxus Honey Barrel is a Chrome extension that helps wine and whiskey enthusiasts make informed decisions by scraping product information from various online retailers and instantly comparing prices with listings on the Baxus marketplace.
 
-**[Watch Demo Video]((https://github.com/Dolapo-A/Honey-Barrel-chrome-extension/blob/main/assets/icons/icon48.png))**
+**[Watch Demo Video](./assets/videos/demo.mp4)**
 
 ## 🌟 Features
 
@@ -23,7 +23,7 @@ Baxus Honey Barrel is a Chrome extension that helps wine and whiskey enthusiasts
 
 ### Method 2: Manual Installation
 
-1. Download the latest release from our [GitHub repository](https://github.com/baxus/honey-barrel)
+1. Download the latest release from our [GitHub repository](https://github.com/Dolapo-A/Honey-Barrel-chrome-extension/)
 2. Unzip the downloaded file
 3. Open Chrome and navigate to `chrome://extensions/`
 4. Enable "Developer mode" in the top-right corner
@@ -55,7 +55,7 @@ The extension currently works with the following platforms:
 
 [Insert your video description here]
 
-<iframe width="560" height="315" src="YOUR_VIDEO_URL" frameborder="0" allowfullscreen></iframe>
+[Watch the Demo Video](./assets/videos/demo.mp4)
 
 *Note: Replace "YOUR_VIDEO_URL" with the actual URL of your demonstration video.*
 
@@ -72,16 +72,6 @@ Access the extension settings by right-clicking the icon and selecting "Options"
 
 We welcome contributions from the community! Please see our [Contributing Guidelines](CONTRIBUTING.md) for more information on how to get involved.
 
-## 📞 Support
-
-- **Email**: support@baxushoneybarrel.com
-- **Twitter**: [@BaxusHB](https://twitter.com/BaxusHB)
-- **Discord**: [Join our community](https://discord.gg/baxushoneybarrel)
-
-## 📜 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
 ---
 
-Made with ❤️ by the Baxus team
+Made with ❤️ by the Dolapo Araoye
