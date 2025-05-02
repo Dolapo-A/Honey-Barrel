@@ -77,9 +77,9 @@ export default {
 		resultsContainer.innerHTML = ""; // Clear previous results
 
 		if (comparisons.length === 1) {
-			resultsContainer.classList.add("single-product")
+			resultsContainer.classList.add("single-product");
 		} else {
-			resultsContainer.classList.remove("single-product")
+			resultsContainer.classList.remove("single-product");
 		}
 
 		const totalItems = comparisons.length;
@@ -97,7 +97,7 @@ export default {
 	 * @param {ComparisonItem} item - Comparison item data
 	 * @param{totalItems} totalItems
 	 * @returns {string} HTML string
-	 * 
+	 *
 	 */
 	createComparisonItemHTML(item, totalItems) {
 		// Ensure item has valid properties or provide defaults
@@ -130,29 +130,34 @@ export default {
 			</div>`
 				: ``;
 
-		const containerClass = totalItems > 1 ? 'baxus-product' : 'scraped-product';
+		const containerClass = totalItems > 1 ? "baxus-product" : "scraped-product";
+
+		const details = totalItems > 1 ? "" : "details";
 		return `
-		   <div class="${containerClass}">
-			${percentageSavingsBadge}
-			 <div class="scraped-product-image-container baxus-product-image-container">
-			   <img
-				 class="scraped-product-image baxus-product-image"
-				 src="${imageURL}"
-				 alt="${name} image"
-				 loading="lazy"
-			   />
-			 </div>
-			 <div class="scraped-product-details baxus-product-details">
-			 <p class="scraped-product-price baxus-product-price">${formatPrice(price)}</p>
-			   <p class="scraped-product-name baxus-product-name">${name}</p>
-			   <p class="scraped-product-size baxus-product-size">${size}</p>
-			   ${savingsHTML}
-			   <a href="${url}" 
-				  target="_blank" 
-				  class="view-button"
-				  rel="noopener">View on BAXUS</a>
-			 </div>
-		   </div>
+		<div class="${containerClass} details-column">
+			<div class="${details}">
+				${percentageSavingsBadge}
+				<div class="scraped-product-image-container baxus-product-image-container">
+					<img
+						class="scraped-product-image baxus-product-image"
+						src="${imageURL}"
+						alt="${name} image"
+						loading="lazy"
+					/>
+				</div>
+				<div class="scraped-product-details baxus-product-details">
+					<p class="scraped-product-price baxus-product-price">${formatPrice(price)}</p>
+					<p class="scraped-product-name baxus-product-name">${name}</p>
+					<p class="scraped-product-size baxus-product-size">${size}</p>
+					${savingsHTML}
+				</div>
+			</div>
+			<a href="${url}" 
+			target="_blank" 
+			class="view-button"
+			rel="noopener">View on BAXUS
+			</a>
+		</div>
 		 `;
 	},
 };
