@@ -57,7 +57,7 @@ The extension currently works with the following platforms:
 
 [Watch the Demo Video](./assets/videos/demo.mp4)
 
-*Note: Replace "YOUR_VIDEO_URL" with the actual URL of your demonstration video.*
+_Note: Replace "YOUR_VIDEO_URL" with the actual URL of your demonstration video._
 
 ## ⚙️ Configuration Options
 
