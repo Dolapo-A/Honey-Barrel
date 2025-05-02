@@ -1,6 +1,6 @@
 # Baxus Honey Barrel - Wine & Whiskey Market Analyzer
 
-![Baxus Honey Barrel Logo](https://placeholder.com/logo)
+![Baxus Honey Barrel Logo]([https://placeholder.com/logo](https://github.com/Dolapo-A/Honey-Barrel-chrome-extension/blob/main/assets/icons/icon48.png))
 
 ## 📝 Overview
 
