@@ -1,6 +1,6 @@
 # Baxus Honey Barrel - Wine & Whiskey Market Analyzer
 
-![Baxus Honey Barrel Logo](./assets/icons/icon128.png)
+![Baxus Honey Barrel Logo](./assets/icons/icon48.png)
 
 
 
