@@ -2,11 +2,13 @@
 
 ![Baxus Honey Barrel Logo](./assets/icons/icon128.png)
 
+
+
 ## 📝 Overview
 
 Baxus Honey Barrel is a Chrome extension that helps wine and whiskey enthusiasts make informed decisions by scraping product information from various online retailers and instantly comparing prices with listings on the Baxus marketplace.
 
-**[Watch Demo Video](./assets/videos/demo.mp4)**
+https://github.com/user-attachments/assets/bcba365f-62f4-44f9-9dd4-2290d2cb9322
 
 ## 🌟 Features
 
@@ -50,12 +52,6 @@ Baxus Honey Barrel is a Chrome extension that helps wine and whiskey enthusiasts
 The extension currently works with the following platforms:
 
 - Total Wine & More
-
-## <a name="demo-video"></a> 🎥 Demo Video
-
-[Watch the Demo Video](./assets/videos/demo.mp4)
-
-_Note: Replace "YOUR_VIDEO_URL" with the actual URL of your demonstration video._
 
 ## ⚙️ Configuration Options
 
